@@ -1,0 +1,1 @@
+git branch | grep "*" | sed "s/* //" | xargs git push $@ origin
