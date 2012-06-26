@@ -1,0 +1,43 @@
+[user]
+	name = Alex Nisnevich
+	email = alex.nisnevich@gmail.com
+[alias]
+  a       = add
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+  amend   = commit --amend -C HEAD
+  br      = branch
+  brag    = shortlog -sn
+  c       = commit -m
+  cam     = commit -am
+  co      = checkout
+  conf    = !sublime ~/.gitconfig
+  cp      = cherry-pick
+  d       = diff
+  f       = fetch origin
+  graph   = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  ignore  = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+  l       = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --stat
+  master  = checkout master
+  new-br  = !git checkout master && git co -b
+  p       = pushbranch
+  patch   = diff --patch
+  pl      = pullbranch
+  plom    = pull origin master
+  pom     = push origin master
+  pr      = pullbranch --rebase
+  r       = !git ls-files -z --deleted | xargs -0 git rm
+  rst     = reset --hard HEAD
+  rv      = revert
+  s       = status -sb
+  st      = status
+  sh      = show
+  this    = !git init && git add . && git commit -m \"initial commit\"
+  undo    = reset --soft HEAD^
+  unstage = reset HEAD
+  unstash = stash pop
+  up      = pull --rebase
+[core]
+	editor = pluma
+	excludesfile = ~/.gitignore
+[color]
+	ui = 1
