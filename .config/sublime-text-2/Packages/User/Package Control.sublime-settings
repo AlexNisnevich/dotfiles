@@ -1,0 +1,16 @@
+{
+	"auto_upgrade_last_run": 1340330194,
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Alignment",
+		"alternative_autocompletion",
+		"ERB Insert and Toggle Commands",
+		"Haml",
+		"Package Control",
+		"RubyTest",
+		"SCSS",
+		"sublime-jslint",
+		"SublimeCodeIntel"
+	]
+}
