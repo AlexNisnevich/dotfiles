@@ -1,7 +1,12 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/Blackboard.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns":
+	[
+		".bundle",
+		".git",
+		".idea"
+	],
 	"font_size": 10,
-	"trim_trailing_whitespace_on_save": true,
-  "folder_exclude_patterns": [".bundle", ".git", ".idea"]
+	"trim_trailing_whitespace_on_save": true
 }

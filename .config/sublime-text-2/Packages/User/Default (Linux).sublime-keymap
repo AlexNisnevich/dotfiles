@@ -1,5 +1,6 @@
 [
   { "keys": ["ctrl+alt+b"], "command": "blame" },
+  { "keys": ["ctrl+shift+r"], "command": "quick_file_move" },
 
   // Auto-pair string interpolation for ruby (http://www.sublimetext.com/forum/viewtopic.php?f=2&t=4204)
   { "keys": ["#"], "command": "insert_snippet", "args": {"contents": "{$0}"}, "context":
