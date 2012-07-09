@@ -13,6 +13,7 @@
   conf    = !sublime ~/.gitconfig
   cp      = cherry-pick
   d       = diff
+  ds      = diff --staged
   f       = fetch origin
   graph   = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   ignore  = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore

@@ -18,6 +18,7 @@ class TrimTrailingWhitespace(sublime_plugin.TextCommand):
     """Trims trailing whitespace."""
     def run(self, *args):
         trailing_white_space = self.view.find_all("[\t ]+$")
+        trailing_white_space.reverse()
         edit = self.view.begin_edit()
         for match in trailing_white_space:
             self.view.erase(edit, match)
