@@ -13,6 +13,8 @@
   conf    = !sublime ~/.gitconfig
   cp      = cherry-pick
   d       = diff
+  dc      = diff HEAD^ HEAD
+  df      = difftool --gui
   ds      = diff --staged
   f       = fetch origin
   graph   = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -21,7 +23,6 @@
   master  = checkout master
   new-br  = !git checkout master && git co -b
   p       = pushbranch
-  patch   = diff --patch
   pl      = pullbranch
   plom    = pull origin master
   pom     = push origin master
@@ -42,3 +43,9 @@
 	excludesfile = ~/.gitignore
 [color]
 	ui = 1
+[diff]
+	guitool = diffnow
+[difftool]
+	prompt = false
+[difftool "diffnow"]
+	cmd = diffnow -b chromium $LOCAL $REMOTE
