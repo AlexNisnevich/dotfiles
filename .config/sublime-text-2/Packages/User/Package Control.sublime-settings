@@ -1,5 +1,5 @@
 {
-	"auto_upgrade_last_run": 1342044845,
+	"auto_upgrade_last_run": 1342230363,
 	"installed_packages":
 	[
 		"AdvancedNewFile",
@@ -12,10 +12,10 @@
 		"Markdown Preview",
 		"Package Control",
 		"Pretty JSON",
+		"Prolog",
 		"QuickFileMove",
 		"RubyTest",
 		"Sass",
-		"SASS",
 		"SCSS",
 		"sublime-jslint",
 		"SublimeCodeIntel",

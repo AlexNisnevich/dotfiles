@@ -1,0 +1,3 @@
+#!/bin/sh
+
+chromium $(curl "http://rubygems.org/gems/$1" 2>/dev/null | grep "Source Code" | sed 's/^.*<a href="//' | sed 's/".*$//') > /dev/null &
