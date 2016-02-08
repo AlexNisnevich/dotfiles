@@ -34,7 +34,7 @@ plugins=(git github rails rails3 ruby rvm gem node nyan bundler cap rake)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/home/alex/local/bin:/home/alex/local/sbin:/home/akex/usr/sbin:/usr/local/pgsql/bin:/home/alex/.rvm/gems/ruby-1.9.3-p194/bin:/home/alex/.rvm/gems/ruby-1.9.3-p194@global/bin:/home/alex/.rvm/rubies/ruby-1.9.3-p194/bin:/home/alex/.rvm/bin:/home/alex/local/node/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/alex/.rvm/bin
+export PATH=$PATH:/home/alex/local/bin
 
 # misc
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
