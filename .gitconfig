@@ -37,7 +37,6 @@
   undo    = reset --soft HEAD^
   unstage = reset HEAD
   unstash = stash pop
-  up      = pull --rebase
 [core]
 	editor = pluma
 	excludesfile = ~/.gitignore
