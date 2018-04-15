@@ -1,6 +1,6 @@
 [user]
-	name = Alex Nisnevich
-	email = alex.nisnevich@gmail.com
+    name = Alex Nisnevich
+    email = alex.nisnevich@gmail.com
 [alias]
   a       = add
   aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
@@ -9,8 +9,11 @@
   brag    = shortlog -sn
   c       = commit -m
   cam     = commit -am
+  camm    = commit -am minor
+  cammp   = !git commit -am minor && git pl && git p
   co      = checkout
-  conf    = !sublime ~/.gitconfig
+  cos     = !git reflog | grep checkout | tail -n +2 | head -15 | awk '{ print \"@{-\" NR \"} \" $NF }'
+  conf    = !open ~/.gitconfig
   cp      = cherry-pick
   d       = diff
   dc      = diff HEAD^ HEAD
@@ -21,13 +24,16 @@
   ignore  = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
   l       = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --stat
   master  = checkout master
-  new-br  = !git checkout master && git co -b
-  p       = pushbranch
-  pl      = pullbranch
+  m       = !git checkout master && git pull origin master
+  new-br  = !sh -c \"git stash && git checkout master && git pull origin master && git checkout -b $1 && git unstash\" -
+  p       = !git rev-parse --abbrev-ref HEAD | xargs git push origin
+  pl      = !git rev-parse --abbrev-ref HEAD | xargs git pull origin
   plom    = pull origin master
+  plomp   = !git pull origin master && git p
   pom     = push origin master
-  pr      = pullbranch --rebase
+  pr      = pl --rebase
   r       = !git ls-files -z --deleted | xargs -0 git rm
+  return  = checkout origin/master --
   rst     = reset --hard HEAD
   rv      = revert
   s       = status -sb
@@ -38,13 +44,14 @@
   unstage = reset HEAD
   unstash = stash pop
 [core]
-	editor = pluma
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
 [color]
-	ui = 1
+    ui = 1
 [diff]
-	guitool = diffnow
+    guitool = diffnow
 [difftool]
-	prompt = false
+    prompt = false
 [difftool "diffnow"]
-	cmd = diffnow -b chromium $LOCAL $REMOTE
+    cmd = diffnow -b chromium $LOCAL $REMOTE
+[push]
+  default = current
