@@ -9,8 +9,16 @@
   brag    = shortlog -sn
   c       = commit -m
   cam     = commit -am
+  camm    = commit -am minor
+  cammp   = !git commit -am minor && git pl && git p
   co      = checkout
-  conf    = !sublime ~/.gitconfig
+  co-2    = checkout @{-2}
+  co-3    = checkout @{-3}
+  co-4    = checkout @{-4}
+  co-5    = checkout @{-5}
+  co-6    = checkout @{-6}
+  cos     = !git reflog | grep checkout | tail -n +2 | head -15 | awk '{ print \"@{-\" NR \"} \" $NF }'
+  conf    = !open ~/.gitconfig
   cp      = cherry-pick
   d       = diff
   dc      = diff HEAD^ HEAD
@@ -21,13 +29,16 @@
   ignore  = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
   l       = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --stat
   master  = checkout master
-  new-br  = !git checkout master && git co -b
-  p       = pushbranch
-  pl      = pullbranch
+  m       = !git checkout master && git pull origin master
+  new-br  = !sh -c \"git stash && git checkout master && git pull origin master && git checkout -b $1 && git unstash\" -
+  p       = !git rev-parse --abbrev-ref HEAD | xargs git push origin
+  pl      = !git rev-parse --abbrev-ref HEAD | xargs git pull origin
   plom    = pull origin master
+  plomp   = !git pull origin master && git p
   pom     = push origin master
-  pr      = pullbranch --rebase
+  pr      = pl --rebase
   r       = !git ls-files -z --deleted | xargs -0 git rm
+  return  = checkout origin/master --
   rst     = reset --hard HEAD
   rv      = revert
   s       = status -sb
@@ -37,9 +48,7 @@
   undo    = reset --soft HEAD^
   unstage = reset HEAD
   unstash = stash pop
-  up      = pull --rebase
 [core]
-	editor = pluma
 	excludesfile = ~/.gitignore
 [color]
 	ui = 1
@@ -49,3 +58,5 @@
 	prompt = false
 [difftool "diffnow"]
 	cmd = diffnow -b chromium $LOCAL $REMOTE
+[push]
+  default = current
