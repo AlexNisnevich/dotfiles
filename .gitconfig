@@ -1,6 +1,6 @@
 [user]
-	name = Alex Nisnevich
-	email = alex.nisnevich@gmail.com
+    name = Alex Nisnevich
+    email = alex.nisnevich@gmail.com
 [alias]
   a       = add
   aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
@@ -49,14 +49,14 @@
   unstage = reset HEAD
   unstash = stash pop
 [core]
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
 [color]
-	ui = 1
+    ui = 1
 [diff]
-	guitool = diffnow
+    guitool = diffnow
 [difftool]
-	prompt = false
+    prompt = false
 [difftool "diffnow"]
-	cmd = diffnow -b chromium $LOCAL $REMOTE
+    cmd = diffnow -b chromium $LOCAL $REMOTE
 [push]
   default = current
