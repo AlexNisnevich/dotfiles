@@ -12,6 +12,7 @@
   camm    = commit -am minor
   cammp   = !git commit -am minor && git pl && git p
   co      = checkout
+  co-1    = checkout -
   co-2    = checkout @{-2}
   co-3    = checkout @{-3}
   co-4    = checkout @{-4}
