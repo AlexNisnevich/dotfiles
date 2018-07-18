@@ -18,6 +18,10 @@
   co-4    = checkout @{-4}
   co-5    = checkout @{-5}
   co-6    = checkout @{-6}
+  co-7    = checkout @{-7}
+  co-8    = checkout @{-8}
+  co-9    = checkout @{-9}
+  co-10   = checkout @{-10}
   cos     = !git reflog | grep checkout | tail -n +2 | head -15 | awk '{ print \"@{-\" NR \"} \" $NF }'
   conf    = !open ~/.gitconfig
   cp      = cherry-pick
