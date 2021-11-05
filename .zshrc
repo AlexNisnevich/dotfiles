@@ -29,17 +29,45 @@ ZSH_THEME="badger"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github rails rails3 ruby rvm gem node nyan bundler cap rake)
+#plugins=(git github rails rails3 ruby rvm gem node nyan bundler cap rake kubectl)
+plugins=(git github node kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/home/alex/local/bin
+export PATH=/home/alex/local/bin:/Users/alex/local/bin:$PATH
 
 # misc
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # aliases
 alias subl="sublime"
-alias zshconfig="vi ~/.zshrc &"
+alias are="aretext"
+alias zshconfig="are ~/.zshrc"
+alias venv="source ./env/bin/activate"
 
+# directory aliases
+alias h="cd ~/src/harbor"
+alias hd="cd ~/src/harbor/data-collection && venv"
+alias hdc="cd ~/src/harbor/data-collection/data_manager/client"
+alias d="cd ~/src/devops && venv"
+
+export AWS_ACCESS_KEY_ID='AKIAIEG2MPKZ464MRHTQ'
+export AWS_SECRET_ACCESS_KEY='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'
+export EC2_INSTANCE_FILTERS='tag:Manager=ansible'
+
+#source /usr/local/bin/virtualenvwrapper.sh
+
+export NVM_DIR=~/.nvm                  
+source $(brew --prefix nvm)/nvm.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+#export PATH="$PATH:$HOME/.rvm/bin"
+#source $HOME/.rvm/scripts/rvm
+
+export PATH=$PATH:/Users/alex/src/harbor/codalab-cli/codalab/bin
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/python@3.7/bin:$PATH"
+export PATH=$PATH:$HOME/go/bin 
+
+export AZURE_ARTIFACTS_PAT=teuozd7wo45lfguigpywyzmpz5tjusnshlprlqxi2u6zlpavzh2q

@@ -22,8 +22,13 @@
   co-8    = checkout @{-8}
   co-9    = checkout @{-9}
   co-10   = checkout @{-10}
+  co-11   = checkout @{-11}
+  co-12   = checkout @{-12}
+  co-13   = checkout @{-13}
+  co-14   = checkout @{-14}
+  co-15   = checkout @{-15}
   cos     = !git reflog | grep checkout | tail -n +2 | head -15 | awk '{ print \"@{-\" NR \"} \" $NF }'
-  conf    = !open ~/.gitconfig
+  conf    = !code ~/.gitconfig || vim ~/.gitconfig
   cp      = cherry-pick
   d       = diff
   dc      = diff HEAD^ HEAD
@@ -33,17 +38,20 @@
   graph   = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   ignore  = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
   l       = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --stat
-  master  = checkout master
-  m       = !git checkout master && git pull origin master
-  new-br  = !sh -c \"git stash && git checkout master && git pull origin master && git checkout -b $1 && git unstash\" -
+  main    = !git checkout main
+  master  = !git checkout main
+  m       = !git main && git pull origin main
+  new-br  = !sh -c \"git stash && git checkout main && git pull origin main && git checkout -b $1 && git unstash\" -
+  new-br-from = !sh -c \"git stash && git checkout $1 && git pull origin $1 && git checkout -b $2 && git unstash\" -
   p       = !git rev-parse --abbrev-ref HEAD | xargs git push origin
   pl      = !git rev-parse --abbrev-ref HEAD | xargs git pull origin
-  plom    = pull origin master
-  plomp   = !git pull origin master && git p
-  pom     = push origin master
+  plom    = !git pull origin main
+  plomp   = !git pull origin main && git p
+  pom     = !push origin main
   pr      = pl --rebase
+  publish = !git co -b "publish/$(git rev-parse --abbrev-ref HEAD)" && git p -f && git co - && git br -D "publish/$(git rev-parse --abbrev-ref HEAD)"
   r       = !git ls-files -z --deleted | xargs -0 git rm
-  return  = checkout origin/master --
+  return  = !git checkout $(git symbolic-ref refs/remotes/origin/HEAD) --
   rst     = reset --hard HEAD
   rv      = revert
   s       = status -sb
@@ -55,6 +63,7 @@
   unstash = stash pop
 [core]
     excludesfile = ~/.gitignore
+	editor = aretext
 [color]
     ui = 1
 [diff]
@@ -65,3 +74,5 @@
     cmd = diffnow -b chromium $LOCAL $REMOTE
 [push]
   default = current
+[pull]
+	rebase = false
